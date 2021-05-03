@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+if( isset($_SESSION['user_id']) ){
+    header('location: blog.php' );
+} 
 require_once 'app/healpers.php';
 $page_title = 'Sing Up';
 
@@ -55,7 +59,13 @@ if( isset($_POST['submit']) ){
 
         if( $result && mysqli_affected_rows($link) ){
             //  במידה והנתונים נשמרו תרו. הפרודצורה הבאה
+            $_SESSION['user_name'] = $name;
+            $_SESSION['user_id'] = mysqli_insert_id($link); // שהתקבל אחרון בשורות למעלה ID בודקת מה ה
+
             header('location: blog.php'); // מעביר את הגולש לדף שנבחר
+            // שרוצים url  ניתן להזין פה איזה 
+
+            
         }
     }
 }

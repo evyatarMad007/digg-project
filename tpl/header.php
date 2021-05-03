@@ -32,20 +32,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="about.php">About</a>
+                            <a class="nav-link" aria-current="page" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="blog.php">Blog</a>
+                            <a class="nav-link" aria-current="page" href="blog.php">Blog</a>
                         </li>
                     </ul>
 
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <?php if( ! isset($_SESSION['user_id']) ): ?>
+                    
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="singin.php">Sing In</a>
+                            <a class="nav-link" aria-current="page" href="singin.php">Sing In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="singup.php">Sing Up</a>
+                            <a class="nav-link" aria-current="page" href="singup.php">Sing Up</a>
                         </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="profile.php"><?= $_SESSION['user_name']; ?></a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
+                        </li>
+                    <?php endif; ?>
+
                     </ul>
                 </div>
 
