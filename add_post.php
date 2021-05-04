@@ -24,7 +24,6 @@ if( isset($_POST['submit']) ){
         $errors['article'] = '* Article is required for minimum 10 chars';
         $valid_form = false;
     } 
-    
     if($valid_form){
         $uid = $_SESSION['user_id'];
         $link = mysqli_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PWD, MYSQL_DB);
@@ -36,7 +35,6 @@ if( isset($_POST['submit']) ){
         }
     }
 }
-
 
 
 ?>
@@ -59,7 +57,7 @@ if( isset($_POST['submit']) ){
 
             <section id="new-post-form">
       <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4 mt-3">
           <form action="" method="POST" autocomplete="off" novalidate="novalidate">
             <div class="mb-3">
               <label for="title" class="form-label">* Title</label>
@@ -79,7 +77,6 @@ if( isset($_POST['submit']) ){
       </div>
     </section>
 
-        
             </div>
         </div>
     </main>

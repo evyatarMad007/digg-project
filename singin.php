@@ -58,8 +58,8 @@ if( isset($_POST['submit']) ){ // when submit is clicked (and sending data to po
 
 
         <section id="signin-form-content">
-      <div class="row">
-        <div class="col-lg-6">
+      <div class="row mt-5" style="display: flex; justify-content: center;">
+        <div class="col-lg-4">
           <form id="signin-form" action="" method="POST" novalidate="novalidate">
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>

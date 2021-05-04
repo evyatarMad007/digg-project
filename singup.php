@@ -95,8 +95,8 @@ if( isset($_POST['submit']) ){
             </section>
 
             <section id="signup-form-content">
-                <div class="row">
-                    <div class="col-lg-6">
+                <div class="row" style="display: flex; justify-content: center;">
+                    <div class="col-lg-4 mt-5">
                         <form id="singup-form" action="" method="POST" novalidate="novalidate">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
