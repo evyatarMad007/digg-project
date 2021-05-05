@@ -1,3 +1,11 @@
 .mh-900 {
     min-height: 900px;
 }
+
+#img-p-h {
+    background-color: #fff;
+    display: block;
+    width: 500px;
+    height: 500px;
+    
+}

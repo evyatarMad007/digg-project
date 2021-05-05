@@ -58,31 +58,30 @@ if( isset($_POST['submit']) ){
 
             <section id="profile-form">
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <form action="" method="POST" autocomplete="off" novalidate="novalidate">
                             <div class="mb-3">
-                                <label for="fname" class="form-label">First Name</label>
+                                <label for="fname" class="form-label">Edit name</label>
                                 <input type="text" class="form-control" id="fname" name="fname" value="<?= old('fname'); ?>">
-                                <span class="text-danger"><?= $errors['fname']; ?></span>
+                                <!-- <span class="text-danger"><?= $errors['fname']; ?></span> -->
                             </div>
                             <div class="mb-3">
-                                <label for="lname" class="form-label">Last Name</label>
+                                <label for="lname" class="form-label">Upload image profile</label>
                                 <input type="text" class="form-control" id="lname" name="lname" value="<?= old('lname'); ?>">
-                                <span class="text-danger"><?= $errors['lname']; ?></span>
+                                <!-- <span class="text-danger"><?= $errors['lname']; ?></span> -->
                             </div>
-
-
-
-
-
-
 
                             <div class="mb-3">
-                                <label for="article" class="form-label">*first name</label>
-                                <textarea class="form-control" name="article" id="article" cols="30"
-                                    rows="10"><?= old('article'); ?></textarea>
-                                <span class="text-danger"><?= $errors['article']; ?></span>
+                                <label for="lname" class="form-label">Change password</label>
+                                <input type="text" class="form-control" id="lname" name="lname" value="<?= old('lname'); ?>">
+                                <!-- <span class="text-danger"><?= $errors['lname']; ?></span> -->
                             </div>
+                            <div class="mb-3">
+                                <label for="lname" class="form-label">Confirm password</label>
+                                <input type="text" class="form-control" id="lname" name="lname" value="<?= old('lname'); ?>">
+                                <!-- <span class="text-danger"><?= $errors['lname']; ?></span> -->
+                            </div>
+
                             <button type="submit" name="submit" class="btn btn-primary">Save</button>
                             <a class="btn btn-secondary" href="blog.php">Cancel</a>
                         </form>

@@ -47,7 +47,7 @@ if( isset($_POST['submit']) ){
             <div class="container">
         
             <section id="add-post-content">
-                <div class="row mt-5">
+                <div class="row mt-5 text-center">
                     <div class="col-12 mt-5">
                         <h1 class="display-4">Add new Post</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -55,9 +55,9 @@ if( isset($_POST['submit']) ){
                 </div>
             </section>
 
-            <section id="new-post-form">
-      <div class="row">
-        <div class="col-lg-4 mt-3">
+            <section id="new-post-form" > 
+      <div class="row" style="display: flex; justify-content: center;">
+        <div class="col-lg-4 mt-3" >
           <form action="" method="POST" autocomplete="off" novalidate="novalidate">
             <div class="mb-3">
               <label for="title" class="form-label">* Title</label>

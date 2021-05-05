@@ -48,7 +48,7 @@ if( isset($_POST['submit']) ){
     if($valid_form){
         // save data in mysql db 
         // הקוד הזה עם בעיות אבטחה כבדות
-        $sql = "INSERT INTO users VALUE(null, '$name', '$email', '$password')";
+        $sql = "INSERT INTO users VALUE(null, '$name', '$email', '$password', 'empty', NOW())";
         $result = mysqli_query($link, $sql);
 
         // mysqli_effected_rows =  שורות מושפעות (בוצעו שינויים)
@@ -71,9 +71,6 @@ if( isset($_POST['submit']) ){
 }
 
 
-
-// $_POST; // for method POST
-// $_GET; // for method GET
 
 
 ?>

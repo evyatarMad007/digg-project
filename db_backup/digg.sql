@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2021 at 08:03 PM
+-- Generation Time: May 05, 2021 at 11:38 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -40,7 +40,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `article`, `date`) VALUES
-(1, 12, 'first post test', 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla', '2021-05-03 20:54:55');
+(1, 12, 'first post test', 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla', '2021-05-03 20:54:55'),
+(2, 12, 'kljlkjklj', 'kljklj', '2021-05-04 14:58:08');
 
 -- --------------------------------------------------------
 
@@ -52,15 +53,18 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `img_profile` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(13, 'Evyatar Madari', 'eviyatar@gmail.com', '123456');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `img_profile`, `created_at`) VALUES
+(13, 'Evyatar Madari', 'eviyatar@gmail.com', '123456', '', '2021-05-05 11:27:28'),
+(21, 'refael', 'refael@gmail.com', '123456', 'empty', '2021-05-05 11:33:33');
 
 --
 -- Indexes for dumped tables
@@ -86,13 +90,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
