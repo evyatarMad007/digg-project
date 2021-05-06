@@ -5,6 +5,14 @@ define('MYSQL_USER', 'root');
 define('MYSQL_PWD', '');
 define('MYSQL_DB', 'digg');
 
+function dd($data, $die = true){
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+    if( $die ) die;
+  }
+
+  
 function get_footer($page = 'footer'){
     include "tpl/$page.php";
 }

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2021 at 11:38 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: May 06, 2021 at 08:12 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.3.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,12 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `article`, `date`) VALUES
 (1, 12, 'first post test', 'bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla', '2021-05-03 20:54:55'),
-(2, 12, 'kljlkjklj', 'kljklj', '2021-05-04 14:58:08');
+(2, 12, 'kljlkjklj', 'kljklj', '2021-05-04 14:58:08'),
+(3, 13, 'hgfhgf', 'ghfghfhgf', '2021-05-06 18:21:48'),
+(4, 13, 'לחיחל', 'ילחיחלי', '2021-05-06 18:41:12'),
+(5, 13, 'חלילחי', 'לחיחליחלי', '2021-05-06 18:41:15'),
+(6, 13, 'טואוטאוט', 'אוטאוטאוטא', '2021-05-06 18:41:19'),
+(7, 13, 'ןואוא', 'וןאןואטא', '2021-05-06 18:41:21');
 
 -- --------------------------------------------------------
 
@@ -90,7 +95,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

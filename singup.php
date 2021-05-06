@@ -19,12 +19,21 @@ $errors = ['name' => '','email' => '','password' => '',];
 
 if( isset($_POST['submit']) ){
 
-    $name = !empty($_POST['name']) ? trim($_POST['name']) : '';
-    $email = !empty($_POST['email']) ? trim($_POST['email']) : '';
-    $password = !empty($_POST['password']) ? trim($_POST['password']) : '';
+    // security = xss attack & validation:
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING); 
+    $name = trim($name);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL); // regexp validate on priset email
+    $email = trim($email);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING); 
+    $password = trim($password);
+    // -----------------------------------------------------------------------------------
     $valid_form = true;
     $link = mysqli_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PWD, MYSQL_DB);
-
+    // security = sql injection:
+    $name = mysqli_real_escape_string($link,$name);
+    $email = mysqli_real_escape_string($link,$email);
+    $password = mysqli_real_escape_string($link,$password);
+    // -----------------------------------------------------------------------------------
 
     if( !$name || mb_strlen($name) < 2 || mb_strlen($name) > 70 ){
         $errors['name'] = '* Name is required for 2-70 chars';
@@ -76,19 +85,19 @@ if( isset($_POST['submit']) ){
 ?>
 <?php get_header() ?>
 
-<main class="mh-900"> 
-        <div class="container-fluid">
-            <div class="container">
-        
+<main class="mh-900">
+    <div class="container-fluid">
+        <div class="container">
+
             <section id="singup">
-            <div class="row mt-5">
+                <div class="row mt-5">
                     <div class="col-12 mt-5 text-center">
                         <h1 class="display-4">Sing up</h1>
                         <p>Opening an account is free</p>
                         <p>Have an account?<a href="singin.php">Sing In</a></p>
                     </div>
                 </div>
-                
+
             </section>
 
             <section id="signup-form-content">
@@ -97,12 +106,14 @@ if( isset($_POST['submit']) ){
                         <form id="singup-form" action="" method="POST" novalidate="novalidate">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="name" class="form-control" id="name" name="name" value="<?= old('name') ?>">
-                                <span class="text-danger"><?= $errors['name']; ?></span> 
+                                <input type="name" class="form-control" id="name" name="name"
+                                    value="<?= old('name') ?>">
+                                <span class="text-danger"><?= $errors['name']; ?></span>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="<?= old('email') ?>">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    value="<?= old('email') ?>">
                                 <span class="text-danger"><?= $errors['email']; ?></span>
                             </div>
                             <div class="mb-3">
@@ -115,9 +126,9 @@ if( isset($_POST['submit']) ){
                     </div>
                 </div>
             </section>
-        
-            </div>
-        </div>
-    </main>
 
-    <?php get_footer() ?>
+        </div>
+    </div>
+</main>
+
+<?php get_footer() ?>

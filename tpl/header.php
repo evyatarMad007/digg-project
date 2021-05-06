@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +9,14 @@
     <title>Digg | <?= $page_title; ?></title>
     <!-- css link - boostrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" >
-    
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
 
-<header>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary  text-light">
             <div class="container">
 
@@ -41,22 +39,23 @@
                     </ul>
 
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <?php if( ! isset($_SESSION['user_id']) ): ?>
-                    
+                        <?php if( ! isset($_SESSION['user_id']) ): ?>
+
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="singin.php">Sing In</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="singup.php">Sing Up</a>
                         </li>
-                    <?php else: ?>
+                        <?php else: ?>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="profile.php"><span style="color: lime; display:inline-flex; align-items: center; margin-right: 5px; transform: scale(2); width: max-content; height: 20px;">•</span><?= $_SESSION['user_name']; ?></a>
+                            <a class="nav-link" aria-current="page" href="profile.php"><span
+                                    style="color: lime; display:inline-flex; align-items: center; margin-right: 5px; transform: scale(2); width: max-content; height: 20px;">•</span><?= htmlentities($_SESSION['user_name']); ?></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="logout.php">Logout</a>
                         </li>
-                    <?php endif; ?>
+                        <?php endif; ?>
 
                     </ul>
                 </div>
