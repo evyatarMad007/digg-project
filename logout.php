@@ -7,4 +7,4 @@ session_destroy(); // פונקציה פופולרית להתנתקות
 // כי אין לנו מושג מתי יחזור המתשמש הזה
 // וחבל לאחסן את הנתונים לשלושת החודשים הבאים לשווא
 
-header('location: singin.php');
+header('location: signin.php');

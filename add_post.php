@@ -3,9 +3,9 @@
 session_start();
 
 if( ! isset($_SESSION['user_id']) ){
-    header('location: singin.php');
+    header('location: signin.php');
 }
-require_once 'app/healpers.php';
+require_once 'app/helpers.php';
 $page_title = 'Add Post Page';
 $errors = ['title' => '', 'article' => '',];
 

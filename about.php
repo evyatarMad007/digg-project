@@ -1,15 +1,15 @@
 <?php
 session_start();
-require_once 'app/healpers.php';
+require_once 'app/helpers.php';
 $page_title = 'About Us';
 
 ?>
 <?php get_header() ?>
 
-<main class="mh-900"> 
-        <div class="container-fluid">
-            <div class="container">
-        
+<main class="mh-900">
+    <div class="container-fluid">
+        <div class="container">
+
             <section id="about-digg-content">
                 <div class="row mt-5">
                     <div class="col-12 mt-5">
@@ -29,9 +29,9 @@ $page_title = 'About Us';
                     </div>
                 </div>
             </section>
-        
-            </div>
-        </div>
-    </main>
 
-    <?php get_footer() ?>
+        </div>
+    </div>
+</main>
+
+<?php get_footer() ?>

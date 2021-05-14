@@ -3,9 +3,9 @@
 session_start();
 
 if( ! isset($_SESSION['user_id']) ){
-    header('location: singin.php');
+    header('location: signin.php');
 }
-require_once 'app/healpers.php';
+require_once 'app/helpers.php';
 $page_title = 'Add Post Page';
 $errors = ['title' => '', 'article' => '',];
 
@@ -41,11 +41,11 @@ if( isset($_POST['submit']) ){
 
 <?php get_header() ?>
 
-<main class="mh-900"> 
+<main class="mh-900">
 
-        <div class="container-fluid">
-            <div class="container">
-        
+    <div class="container-fluid">
+        <div class="container">
+
             <section id="profile-content">
                 <div class="row mt-5">
                     <div class="col-12 mt-5">
@@ -62,23 +62,27 @@ if( isset($_POST['submit']) ){
                         <form action="" method="POST" autocomplete="off" novalidate="novalidate">
                             <div class="mb-3">
                                 <label for="fname" class="form-label">Edit name</label>
-                                <input type="text" class="form-control" id="fname" name="fname" value="<?= old('fname'); ?>">
+                                <input type="text" class="form-control" id="fname" name="fname"
+                                    value="<?= old('fname'); ?>">
                                 <!-- <span class="text-danger"><?= $errors['fname']; ?></span> -->
                             </div>
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Upload image profile</label>
-                                <input type="text" class="form-control" id="lname" name="lname" value="<?= old('lname'); ?>">
+                                <input type="text" class="form-control" id="lname" name="lname"
+                                    value="<?= old('lname'); ?>">
                                 <!-- <span class="text-danger"><?= $errors['lname']; ?></span> -->
                             </div>
 
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Change password</label>
-                                <input type="text" class="form-control" id="lname" name="lname" value="<?= old('lname'); ?>">
+                                <input type="text" class="form-control" id="lname" name="lname"
+                                    value="<?= old('lname'); ?>">
                                 <!-- <span class="text-danger"><?= $errors['lname']; ?></span> -->
                             </div>
                             <div class="mb-3">
                                 <label for="lname" class="form-label">Confirm password</label>
-                                <input type="text" class="form-control" id="lname" name="lname" value="<?= old('lname'); ?>">
+                                <input type="text" class="form-control" id="lname" name="lname"
+                                    value="<?= old('lname'); ?>">
                                 <!-- <span class="text-danger"><?= $errors['lname']; ?></span> -->
                             </div>
 
@@ -89,8 +93,8 @@ if( isset($_POST['submit']) ){
                 </div>
             </section>
 
-            </div>
         </div>
-    </main>
+    </div>
+</main>
 
 <?php get_footer() ?>

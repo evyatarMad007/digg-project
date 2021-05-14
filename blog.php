@@ -1,16 +1,14 @@
 <?php
 session_start();
-require_once 'app/healpers.php';
-$page_title = 'Blog';
+require_once 'app/helpers.php';
+$page_title = 'Blog Page';
 $link = mysqli_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PWD, MYSQL_DB);
-$sql = "SELECT u.name,p.* FROM posts p 
+$sql = "SELECT u.name,u.image_profile,p.* FROM posts p 
         JOIN users u ON p.user_id = u.id 
         ORDER BY p.date DESC";
 
 $result = mysqli_query($link, $sql);
-// while($post = mysqli_fetch_assoc($result)){
-//     dd($post, false); 
-// }
+$uid = $_SESSION['user_id'] ?? null;
 
 
 ?>
@@ -30,7 +28,7 @@ $result = mysqli_query($link, $sql);
                         <?php if( isset($_SESSION['user_id']) ): ?>
                         <p><a class="btn btn-success" href="add_post.php">+ Add New Post</a></p>
                         <?php else: ?>
-                        <p><a href="singup.php">Create free account and start digg</a></p>
+                        <p><a href="signup.php">Create free account and start digg</a></p>
                         <?php endif; ?>
 
                     </div>
@@ -40,10 +38,14 @@ $result = mysqli_query($link, $sql);
             <section id="the-posts">
                 <div class="row">
                     <?php while($post = mysqli_fetch_assoc($result)): ?>
-                    <div class="col-3 mt-3">
+                    <div class="col-12 mt-4">
                         <div class="card">
                             <div class="card-header">
-                                <span><?= htmlentities($post['name']); ?></span>
+                                <span>
+                                    <img class="rounded-circle img-profile" src="images/<?= $post['image_profile']; ?>"
+                                        alt="User profile image">
+                                </span>
+                                <span class="ms-2"><?= htmlentities($post['name']); ?></span>
                                 <span class="float-end"><?= date('d/m/Y H:i:s', strtotime($post['date'])); ?></span>
                             </div>
                             <div class="card-body">
@@ -51,8 +53,29 @@ $result = mysqli_query($link, $sql);
                                 </h5>
                                 <p class="card-text"><?= str_replace("\n", '<br>', htmlentities($post['article']));?>
                                 </p>
+                                <?php if( $uid == $post['user_id'] ): ?>
+                                <div class="dropdown float-end">
+                                    <a class="dropdown-toggle text-decoration-none" href="#" role="button"
+                                        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </a>
 
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li>
+                                            <a class="dropdown-item" href="edit-post.php">
+                                                <i class="fas fa-pen"></i>
+                                                Edit
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" href="delete-post.php/pid=<?= $post['id']; ?>">
+                                                <i class="fas fa-eraser"></i>
+                                                Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
